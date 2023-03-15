@@ -1,0 +1,387 @@
+/*************
+* Reset
+*************/
+* {
+	padding: 0;
+	margin: 0;
+	border: 0;
+	background: none;
+	list-style: none;
+	outline: none;
+	box-sizing: border-box;
+}
+
+:root {
+	--white: #fff;
+	--black: #000;
+	--primary: #FFCC00;
+	--secondary: #0A72B9;
+	--grey: rgba(0,0,0,.1);
+
+	--fs: 1.12rem;
+	--ff-h: 'Lato', sans-serif;
+	--ff-b: 'Roboto', sans-serif;
+
+	--g-xs: 1.5rem;
+	--g: 2.5rem;
+	--g-md: 4rem;
+	--g-lg: 5rem;
+	--trnst: 1s cubic-bezier(.2, 1, .25, 1);
+
+	--wlogo: 10rem;
+}
+
+html,
+body {
+	font-family: var(--ff-b);
+	font-size: var(--fs);
+	font-display: swap;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	color: var(--black);
+	background-color: var(--white);
+	scroll-behavior: smooth;
+}
+
+h1,
+h2,
+h3,
+h4,
+button {
+	font-family: var(--ff-h);
+}
+h1 {
+	font-size: calc( var(--fs) * 2.618 );
+	margin-bottom: 2.5rem;
+}
+h2 {
+	font-size: calc( var(--fs) * 1.618 );
+	margin-bottom: 1.5rem;
+}
+h3 {
+	font-size: calc( var(--fs) + .6rem );
+	margin-bottom: 1rem;
+}
+h4 {
+	font-size: calc( var(--fs) + .2rem );
+}
+a {
+	color: var(--primary);
+	transition: var(--trnst);
+}
+p:not(:last-child) {
+	margin-bottom: 1.8rem;
+}
+img {
+	width: 100%;
+	height: auto;
+}
+
+form small {
+	display: block;
+	margin-bottom: .8rem;
+}
+input,
+textarea {
+	width: 100%;
+	padding: var(--g-xs);
+	font-family: var(--ff-b);
+	font-size: var(--fs);
+	color: var(--black);
+	background-color: var(--white);
+	border: .1rem solid var(--grey);
+	transition: var(--trnst);
+}
+input:hover:not([type="checkbox"]),
+input:focus:not([type="checkbox"]),
+textarea:hover,
+textarea:focus {
+	border-color: var(--black);
+	background-color: var(--grey);
+}
+input[type="checkbox"] {
+   width: min-content;
+   margin-right: .5em;   
+}
+label[for="agree"] {
+	display: inline;
+	font-size: .8rem;
+}
+
+button,
+.btn {
+	display: inline-block;
+	padding: .5rem 2rem;
+	font-family: var(--ff-h);
+	text-decoration: none;
+	color: var(--white);
+	background: var(--primary);
+	transition: var(--trnst);
+	cursor: pointer;
+}
+button:hover,
+.btn:hover {
+	background: var(--secondary);
+}
+button.gotop {
+	display: none;
+	position: fixed;
+	right: var(--g);
+	bottom: var(--g);
+	width: 2rem;
+	height: 2rem;
+	padding: 0;
+	opacity: .6;
+	background: transparent;
+	animation: fadeIn var(--trnst);
+	transition: var(--trnst);
+	z-index: 999;
+}
+button.gotop::before,
+button.gotop::after {
+	content: '';
+	display: block;
+	position: absolute;
+	right: 0;
+	width: 60%;
+	height: .12rem;
+	background-color: var(--black);
+	transform: rotate(45deg);
+}
+button.gotop::after {
+	right: unset;
+	left: 0;
+	transform: rotate(-45deg);
+}
+button.gotop:hover {
+	opacity: 1;
+}
+main {
+	padding-top: 4.5rem;
+}
+section {
+	padding-top: 4rem;
+}
+section.error {
+	padding-block: 6rem 3rem;
+	text-align: center;
+}
+
+
+/*************
+* Cookiebot fix
+*************/
+
+
+/*************
+* Utilities
+*************/
+.container {
+	max-width: 100%;
+	padding-inline: var(--g-xs);
+}
+.grid {
+	display: grid;
+	gap: var(--g);
+}
+.flex {
+	display: flex;
+	gap: 1rem;
+}
+.items-center {
+	align-items: center;
+}
+.content-between {
+	justify-content: space-between;
+}
+
+.mx-w-25 {
+	max-width: 25rem;
+}
+
+.mt-3 {
+	margin-top: 3rem;
+}
+.p-0 {
+	padding: 0 !important;
+}
+.pt-0 {
+	padding-top: 0;
+}
+.pb-2 {
+	padding-bottom: 2rem;
+}
+.pb-4 {
+	padding-bottom: 4rem;
+}
+
+.visible {
+	display: block !important;
+}
+
+.list li {
+	list-style: disc;
+	margin-left: 2rem;
+	margin-bottom: .8rem;
+	padding-left: .5rem;
+}
+
+.socials svg {
+	width: 1.3rem;
+	aspect-ratio: 1;
+	cursor: pointer;
+}
+
+.sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0,0,0,0);
+	white-space: nowrap;
+}
+
+
+/*************
+* Header
+*************/
+header {
+	position: fixed;
+	width: 100%;
+	display: grid;
+	grid-template-columns: 1fr 2rem;
+	gap: var(--g);
+	padding: .6rem var(--g-xs);
+	font-family: var(--ff-h);
+	background-color: var(--white);
+	z-index: 999;
+}
+header img {
+	width: var(--wlogo);
+}
+header nav#navbar {
+	position: fixed;
+	top: 3.5rem;
+	right: 0;
+	padding: 4rem;
+	background: var(--white);
+	transform: rotateX(90deg);
+	transform-origin: top;
+	transition: transform var(--trnst);
+	z-index: 9998;
+}
+header nav#navbar[data-visible="true"] {
+	transform: rotateX(0);
+}
+header nav#navbar > ul {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	gap: .5rem;
+}
+header nav#navbar > ul li a {
+	position: relative;
+	color: var(--black);
+	text-decoration: none;
+}
+
+button.nav-toggle {
+	display: block;
+	width: 1.5rem;
+	padding: 0;
+	background: none;
+	z-index: 9999;
+}
+button.nav-toggle .bar1,
+button.nav-toggle .bar2,
+button.nav-toggle .bar3 {
+	width: 100%;
+	height: .15rem;
+	margin-block: .35rem;
+	background-color: var(--black);
+	transition: var(--trnst);
+}
+button.nav-toggle[aria-expanded="true"] .bar1 {
+	transform: rotate(-45deg) translate(-50%, -50%);
+}
+button.nav-toggle[aria-expanded="true"] .bar2 {
+	opacity: 0;
+}
+button.nav-toggle[aria-expanded="true"] .bar3 {
+	transform: rotate(45deg) translate(-50%, -50%);
+}
+
+
+/*************
+* Footer
+*************/
+footer {
+	padding-block: 5rem 2rem;
+	color: var(--white);
+	background-color: var(--black);
+}
+footer img {
+	width: calc( var(--wlogo) * 2 );
+}
+
+
+/*************
+* Responsive
+*************/
+/* screen */
+@media (min-width: 768px) {
+	.grid {
+		grid-template-columns: repeat(2, 1fr);
+		gap: var(--g-md);
+	}
+	.gtc-1-2 {
+		grid-template-columns: 1fr 2fr;
+	}
+	.gtc-2-1 {
+		grid-template-columns: 2fr 1fr;
+	}
+	.gtc-3 {
+		grid-template-columns: repeat(3, 1fr);
+	}
+	.gtc-4 {
+		grid-template-columns: repeat(4, 1fr);
+	}
+
+	header {
+		grid-template-columns: var(--wlogo) 1fr;
+	}
+	header nav#navbar {
+		position: relative;
+		inset: unset;
+		padding: 0;
+		padding-left: 2rem;
+		transform: rotateX(0);
+	}
+	header nav#navbar > ul {
+		justify-content: flex-start;
+		flex-direction: row;
+		gap: var(--g-xs);
+	}
+	button.nav-toggle {
+		display: none;
+	}
+}
+/* tablet */
+@media (min-width: 768px) and (max-width: 1024px) {
+
+}
+/* large screen */
+@media (min-width: 1680px) {
+
+}
+
+
+/*************
+* Animation
+*************/
+@keyframes fadeIn {
+	from { opacity: 0; }
+	to { opacity: 1; }
+}
